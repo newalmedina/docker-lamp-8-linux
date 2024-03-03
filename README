@@ -1,8 +1,11 @@
 hthost en linux
 sudo nano /etc/hosts
 
+sudo docker compose exec apache bash 
+
 si da problema para autenticar en dbeaver o otro gestor modificar la forma de autenticarse
 sudo docker compose exec mysql  mysql -u root -p    
 
 esto abrira la consola de mysqll
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';clear
+php 

@@ -25,7 +25,7 @@ services:
   mysql:
     image: mysql:8.0
     ports:
-      - 3307:3306
+      - ${MYSQL_PORT}:3306
     networks:
       public_net:
         ipv4_address: ${MY_IP}.11
@@ -36,6 +36,9 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_LOG_DIR}:/var/log/mysql
+      - ${MYSQL_CONFIG_DIR}/my.cnf:/etc/my.cnf
+      - ${MYSQL_CONFIG_DIR}/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       # - mysql_data:/var/lib/mysql
     restart: always
 
